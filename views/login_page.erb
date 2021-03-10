@@ -1,0 +1,13 @@
+<form action="/sessions" method="post">
+<label for="">Email:</label>
+<input type="text" name="email">
+<label for="">Password:</label>
+<input type="password" name="password">
+<button>GO!</button>
+</form>
+
+<%if params[:login_failed] == 'true'%>
+
+    <p style="color: red">incorrect email or password</p>
+
+<%end%>

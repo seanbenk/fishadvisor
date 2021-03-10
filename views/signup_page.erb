@@ -1,0 +1,16 @@
+<form action="/user" method="post" onsubmit="return isValidEntry();">
+<label for="">Username:</label>
+<input type="text" name="username">
+<label for="">Email:</label>
+<input type="text" name="email">
+<label for="">Password:</label>
+<input type="password" name="password">
+<button>Create Account</button>
+</form>
+<script src="/javascript/newUser.js"></script>
+<p id="#form-message">
+<%if params[:credentials_taken] == 'true'%>
+    email or username already in use
+<%end%>
+</p>
+

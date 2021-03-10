@@ -1,0 +1,32 @@
+
+
+<%if logged_in?%>
+    <form action="/post" method="post" onsubmit="return isValidEntry();">
+    <input type="hidden" name="user_id" value="<%=current_user['user_id']%>">
+
+    <label for="">Title: </label>
+    <input type="text" name="title">
+    <label for="">Comments: </label>
+    <input type="text" name="blurb">
+    <label for="">Spot Name: </label>
+    <input type="text" name="spot_name">
+    <label for="">lng: </label>
+    <input type="text" id="lng" name="lng">
+    <label for="">lat: </label>
+    <input type="text" id="lat" name="lat">
+    <button>Post</button>
+    </form>
+
+    <p id="form-message"></p>
+
+    <div id="map" style="height: 400px; width: 50%; border: solid 2px black;"></div>
+
+<script type="text/javascript" src="/javascripts/newPost.js"></script>
+<script type="text/javascript" src="/javascripts/getNewLocation.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL2eC_h9wFEGOOQ7kiu30hEXqi6JPN_Yo&callback=initMap&libraries=&v=weekly"></script>
+<%else%>
+
+    <h1>You must be logged in to make a post</h1>
+
+<%end%>
+
