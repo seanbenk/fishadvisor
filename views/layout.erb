@@ -10,18 +10,26 @@
 
 <%if logged_in?%>
   <nav>
+  Fishing App
     <ul>
       <li><a href="/">Home</a></li>
       <li>Welcome <%=current_user['username']%></li>
       <li><a href="/post/create">New Post</a></li>
+      <li><a href="/user/<%=current_user['user_id']%>">My Profile</a></li>
       <form action="/sessions" method="post">
         <input type="hidden" name="_method" value="delete">
         <button>Logout</button>
       </form>
     </ul>
+    <div class="hamburger">
+      <div class="hamburger-1"></div>
+      <div class="hamburger-2"></div>
+      <div class="hamburger-3"></div>
+    </div>
   </nav>
 <%else%>
   <nav>
+  Fishing App
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/login">Login</a></li>
@@ -32,5 +40,6 @@
 
   <%= yield %>
 
+<script src="/javascripts/application.js"></script>
 </body>
 </html>

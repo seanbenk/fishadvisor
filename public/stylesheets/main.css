@@ -1,36 +1,115 @@
 *{
     box-sizing: border-box;
 }
+
 body{
     margin: 0;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 nav{
-    height: 60px;
-    display: flex;
-    align-items: center;
     background: lightblue;
 }
 
-nav ul{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: 0;
+@media only screen and (min-width: 768px){
+
+
+
+    nav{
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    nav ul{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 0;
+    }
+
+    nav ul li{
+        list-style: none;
+    }
+
+    nav ul li a{
+        color: black;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover{
+        color: white;
+    }
 }
 
-nav ul li{
-    list-style: none;
+@media only screen and (max-width: 768px){
+    nav{
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 8vh;
+        width: 100vw;
+    }
+
+    nav ul{
+        position: absolute;
+        margin: 0;
+        top: 8vh;
+        right: 0;
+        display: block;
+        background: lightblue;
+        transform: translate(100%, 0);
+        transition: transform 500ms;
+        width: 50vw;
+        height: 92vh;
+    }
+
+    nav ul li{
+        list-style: none;
+        display: block;
+    }
+
+    .hamburger{
+        visibility: visible;
+        z-index: 1;
+        position: relative;
+    }
+
+    .hamburger-1, .hamburger-2, .hamburger-3{
+        width: 20px;
+        height: 3px;
+        margin: 5px;
+        background: black;
+        transition: transform 500ms;
+    }
 }
 
-nav ul li a{
-    color: black;
-    font-size: 1.5rem;
-    text-decoration: none;
+.show-menu{
+    transform: translate(0, 0);
+    transition: transform 500ms;
 }
 
-nav ul li a:hover{
-    color: white;
+.toggle{
+
+}
+
+.toggle .hamburger-1{
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0;
+    left: 0;
+}
+
+.toggle .hamburger-2{
+    display: none;
+}
+
+.toggle .hamburger-3{
+    transform: rotate(-45deg);
+    top: 0;
+    right: 0;
 }

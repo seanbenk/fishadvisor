@@ -2,12 +2,18 @@ require 'sinatra'
 require 'pg'
 require 'bcrypt'
 
+def get_api_key()
+  return "AIzaSyAL2eC_h9wFEGOOQ7kiu30hEXqi6JPN_Yo"
+end
+
 if development?
   require 'sinatra/reloader'
   require 'pry'
-end
 
-enable :sessions # enables a global 'like' object named session
+  def get_api_key()
+      return ENV['MAPS_JS_API_LOCAL_KEY']
+  end
+end
 
 def run_sql(str,arr = [])
   db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'fishing_spots_app_db'})
@@ -15,6 +21,8 @@ def run_sql(str,arr = [])
   db.close
   return results
 end
+
+enable :sessions # enables a global 'like' object named session
 
 def logged_in?()
   return session[:user_id]
@@ -85,9 +93,9 @@ end
 
 get '/user/:user_id' do
 
-  user = run_sql('SELECT * FROM posts WHERE user_id = $1',[params[:user_id]])
+  user_posts = run_sql('SELECT * FROM posts WHERE user_id = $1',[params[:user_id]])
 
-  erb :user_profile, locals:{user: user, user_id: params[:user_id]}
+  erb :user_profile, locals:{user_posts: user_posts, user_id: params[:user_id]}
 end
 
 get '/post/create' do
