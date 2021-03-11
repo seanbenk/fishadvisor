@@ -6,8 +6,9 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-html, body, .site-wrapper{
+.site-wrapper{
     overflow-x: hidden;
+    position: relative;
 }
 
 body{
