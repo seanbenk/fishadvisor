@@ -6,19 +6,14 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-.site-wrapper{
-    margin: 0;
-    height: 100%;
-    width: 100%;
+html, body, .site-wrapper{
     overflow-x: hidden;
-    background: rgb(238, 238, 238);
 }
 
 body{
     margin: 0;
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
     background: rgb(238, 238, 238);
 }
 
