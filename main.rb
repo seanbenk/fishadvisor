@@ -41,10 +41,10 @@ end
 
 get '/' do
 
-  obj = run_sql('SELECT post_id, location_name, lng, lat FROM posts;').to_a.to_json
+  locations = run_sql('SELECT post_id, location_name, lng, lat FROM posts;').to_a.to_json
   
 
-  erb :index, locals:{obj: obj}
+  erb :index, locals:{locations: locations}
 end
 
 get '/signup' do

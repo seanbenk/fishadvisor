@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="/stylesheets/create_post_page.css">
 
 <%if logged_in?%>
     <form action="/post" method="post" onsubmit="return isValidEntry();">
@@ -23,7 +23,7 @@
 
     <p id="form-message"></p>
 
-    <div id="map" style="height: 400px; width: 50%; border: solid 2px black;"></div>
+    <div id="map"></div>
 
 <script type="text/javascript" src="/javascripts/newPost.js"></script>
 <script type="text/javascript" src="/javascripts/getNewLocation.js"></script>

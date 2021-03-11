@@ -12,9 +12,9 @@
 <div id="lat"><%=post['lat']%></div>
 <div id="lng"><%=post['lng']%></div>
 
-<div id="map" style="height: 400px; width: 50%;"></div>
+<div id="map"></div>
 
-<%if current_user['user_id'] == post['user_id']%>
+<%if logged_in? && current_user['user_id'] == post['user_id']%>
 
 <a href="/post/edit">edit your post</a>
 

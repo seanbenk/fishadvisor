@@ -10,10 +10,10 @@
 
 <%if logged_in?%>
   <nav>
-  Fishing App
+  FishAdvisor
     <ul>
-      <li><a href="/">Home</a></li>
       <li>Welcome <%=current_user['username']%></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/post/create">New Post</a></li>
       <li><a href="/user/<%=current_user['user_id']%>">My Profile</a></li>
       <form action="/sessions" method="post">
@@ -29,7 +29,7 @@
   </nav>
 <%else%>
   <nav>
-  Fishing App
+  FishAdvisor
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/login">Login</a></li>

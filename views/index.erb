@@ -4,18 +4,13 @@
 <div class="recent-posts-grid-item"></div>
 </div>
 
-<div id="map" style="width: 600px; height: 600px;"></div>
+<div id="map"></div>
 
 
 
-
- <script
-  src="https://maps.googleapis.com/maps/api/js?key=<%=maps_api_key%>&callback=initMap&libraries=&v=weekly"
-      async 
-    ></script>
 <script>
 
-    const locationsObj = <%=obj%>
+    const locationsObj = <%=locations%>
 
     function initMap() {
 
@@ -50,3 +45,7 @@
         // });
     }
   </script>
+ <script
+  src="https://maps.googleapis.com/maps/api/js?key=<%=maps_api_key%>&callback=initMap&libraries=&v=weekly"
+      async 
+    ></script>

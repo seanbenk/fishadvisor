@@ -1,13 +1,17 @@
-<form action="/sessions" method="post">
-<label for="">Email:</label>
-<input type="text" name="email">
-<label for="">Password:</label>
-<input type="password" name="password">
-<button>GO!</button>
-</form>
+<link rel="stylesheet" href="/stylesheets/login_page.css">
 
-<%if params[:login_failed] == 'true'%>
+<div class="login-content">
+    <form action="/sessions" method="post">
+    <label for="">Email:</label>
+    <input type="text" name="email">
+    <label for="">Password:</label>
+    <input type="password" name="password">
+    <button>Login</button>
+    </form>
 
-    <p style="color: red">incorrect email or password</p>
+    <%if params[:login_failed] == 'true'%>
 
-<%end%>
+        <p style="color: red">incorrect email or password</p>
+
+    <%end%>
+</div>

@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
+
 *{
     box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
 }
 
 body{
@@ -7,10 +11,11 @@ body{
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    background: rgb(238, 238, 238);
 }
 
 nav{
-    background: lightblue;
+    background: #95F2D9;
 }
 
 .profile-posts-grid{
@@ -23,6 +28,25 @@ nav{
     display: block;
     text-align: center;
     border: black solid 1px;       
+}
+
+a{
+    text-decoration: none;
+    color: #225669;
+}
+
+a:hover{
+    transition: color 200ms ease-in;
+    color: #241E4E;
+}
+
+
+
+
+#map{
+    width: 100%;
+    height: 50vh;
+    z-index: 0;
 }
 
 @media only screen and (min-width: 768px){
@@ -62,6 +86,12 @@ nav{
 }
 
 @media only screen and (max-width: 768px){
+
+    form{
+        margin: 30px auto;
+        width: 70%;
+    }
+
     nav{
         padding: 0 10px;
         display: flex;
@@ -77,16 +107,34 @@ nav{
         top: 8vh;
         right: 0;
         display: block;
-        background: lightblue;
+        background: #95F2D9;
         transform: translate(100%, 0);
         transition: transform 500ms;
         width: 50vw;
         height: 92vh;
+        z-index: 1;
     }
 
     nav ul li{
+        margin-top: 15px;
         list-style: none;
         display: block;
+    }
+
+    nav form{
+        margin: 0;
+        width: 0;
+    }
+
+    nav form button{
+        margin-top: 20px;
+        padding: 0;
+        background: none;
+        border: none;
+        color: #225669;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 1rem;
     }
 
     .hamburger{
@@ -106,8 +154,13 @@ nav{
     form > *{
         display: block;
         margin: 0 auto;
-        text-align: center;
+        text-align: left;
         margin-bottom: 10px;
+    }
+
+    form input{
+        width: 100%;
+        height: 40px;
     }
 
     .profile-posts-grid{
