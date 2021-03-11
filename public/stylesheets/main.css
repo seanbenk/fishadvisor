@@ -13,9 +13,19 @@ nav{
     background: lightblue;
 }
 
+.profile-posts-grid{
+    column-gap: 5vh;
+    row-gap: 5vw;
+    margin: 0 5vw;
+}
+
+.profile-posts-grid-item{
+    display: block;
+    text-align: center;
+    border: black solid 1px;       
+}
+
 @media only screen and (min-width: 768px){
-
-
 
     nav{
         height: 60px;
@@ -42,6 +52,12 @@ nav{
 
     nav ul li a:hover{
         color: white;
+    }
+
+    .profile-posts-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        min-width: 600px;
     }
 }
 
@@ -86,6 +102,19 @@ nav{
         background: black;
         transition: transform 500ms;
     }
+
+    form > *{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .profile-posts-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
 }
 
 .show-menu{

@@ -1,1 +1,52 @@
 <h1>fishing spot app home page</h1>
+
+<div class="recent-posts-grid">
+<div class="recent-posts-grid-item"></div>
+</div>
+
+<div id="map" style="width: 600px; height: 600px;"></div>
+
+
+
+
+ <script
+  src="https://maps.googleapis.com/maps/api/js?key=<%=maps_api_key%>&callback=initMap&libraries=&v=weekly"
+      async 
+    ></script>
+<script>
+
+    const locationsObj = <%=obj%>
+
+    function initMap() {
+
+        const centerCoords = { lat: -24, lng: 133 };
+        // The map, centered at fishingSpot
+        const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: centerCoords,
+        });
+
+
+            locationsObj.forEach(location => {
+                
+                var infoWindowContent = `${location['location_name']} <a href='/post/${location['post_id']}'>Visit Post</a>`;
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: infoWindowContent,
+                });
+                var marker = new google.maps.Marker({
+                    position: { lat: Number(location['lat']), lng: Number(location['lng'])},
+                    map: map,
+                    title: location['location_name'],
+                });
+                marker.addListener('click', function(){
+                    infowindow.open(map, marker);
+                });
+            });
+        // The marker, positioned at fishingSpot
+        // const marker = new google.maps.Marker({
+        // position: fishingSpot,
+        // map: map,
+        // });
+    }
+  </script>

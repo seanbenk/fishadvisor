@@ -1,10 +1,10 @@
 <h1> <%=get_username(user_id)%> </h1>
 
-<div class="posts-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 800px;">
+<div class="profile-posts-grid">
     <% user_posts.each do |post| %>
-        <div class="posts-grid-item">
-        <h2><%=post['title']%></h2>
-        <p><%=post['blurb']%></p>
+        <div class="profile-posts-grid-item">
+        <h2><%=post['location_name']%></h2>
+        <p><%=post['about']%></p>
         <a href="/post/<%=post['post_id']%>">view post</a>
         </div>
     <% end %>

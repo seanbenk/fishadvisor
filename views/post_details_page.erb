@@ -1,18 +1,34 @@
-<h2><%=post['title']%></h2>
+<h2><%=post['location_name']%></h2>
 
-<p>posted by <%=get_username(post['user_id'])%></p>
+<p>posted by <%=get_username(post['user_id'])%> at <%=post['post_created']%></p>
 
-<p><%=post['blurb']%></p>
+<p>Target Fish: <%=post['target_fish']%></p>
+<p>Best Bait: <%=post['best_bait']%></p>
+<p>Best Lures: <%=post['best_lures']%></p>
+<p>Best Time to Catch:<%=post['best_times']%></p>
+
+<p><%=post['about_spot']%></p>
 
 <div id="lat"><%=post['lat']%></div>
 <div id="lng"><%=post['lng']%></div>
 
 <div id="map" style="height: 400px; width: 50%;"></div>
 
+<%if current_user['user_id'] == post['user_id']%>
+
+<a href="/post/edit">edit your post</a>
+
+<form action="/post" method="post">
+<input type="hidden" name="_method" value="delete">
+<input type="hidden" name="post_id" value="<%=post['post_id']%>">
+<button>delete your post</button>
+</form>
+
+<%end%>
+
 
 <script src="/javascripts/displayLocation.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=<%=get_api_key%>&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=<%=maps_api_key%>&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-

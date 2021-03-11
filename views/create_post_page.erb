@@ -4,16 +4,20 @@
     <form action="/post" method="post" onsubmit="return isValidEntry();">
     <input type="hidden" name="user_id" value="<%=current_user['user_id']%>">
 
-    <label for="">Title: </label>
-    <input type="text" name="title">
-    <label for="">Comments: </label>
-    <input type="text" name="blurb">
-    <label for="">Spot Name: </label>
-    <input type="text" name="spot_name">
-    <label for="">lng: </label>
-    <input type="text" id="lng" name="lng">
-    <label for="">lat: </label>
-    <input type="text" id="lat" name="lat">
+    <label for="">Location Name: </label>
+    <input type="text" name="location_name">
+    <label for="">Target Fish: </label>
+    <input type="text" name="target_fish">
+    <label for="">Best Bait: </label>
+    <input type="text" name="best_bait">
+    <label for="">Best Lures: </label>
+    <input type="text" name="best_lures">
+    <label for="">Best Time/Tides: </label>
+    <input type="text" name="best_times">
+    <label for="">About this Spot: </label>
+    <input type="text" name="about">
+    <input type="hidden" id="lng" name="lng">
+    <input type="hidden" id="lat" name="lat">
     <button>Post</button>
     </form>
 
@@ -23,7 +27,7 @@
 
 <script type="text/javascript" src="/javascripts/newPost.js"></script>
 <script type="text/javascript" src="/javascripts/getNewLocation.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=get_api_key%>&callback=initMap&libraries=&v=weekly"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=maps_api_key%>&callback=initMap&libraries=&v=weekly"></script>
 <%else%>
 
     <h1>You must be logged in to make a post</h1>

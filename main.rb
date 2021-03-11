@@ -1,18 +1,15 @@
 require 'sinatra'
 require 'pg'
 require 'bcrypt'
+require 'json'
 
-def get_api_key()
-  return "AIzaSyAL2eC_h9wFEGOOQ7kiu30hEXqi6JPN_Yo"
+def maps_api_key()
+  return ENV['MAPS_JS_API_LOCAL_KEY']
 end
 
 if development?
   require 'sinatra/reloader'
   require 'pry'
-
-  def get_api_key()
-      return ENV['MAPS_JS_API_LOCAL_KEY']
-  end
 end
 
 def run_sql(str,arr = [])
@@ -44,7 +41,10 @@ end
 
 get '/' do
 
-  erb :index
+  obj = run_sql('SELECT post_id, location_name, lng, lat FROM posts;').to_a.to_json
+  
+
+  erb :index, locals:{obj: obj}
 end
 
 get '/signup' do
@@ -112,7 +112,13 @@ end
 
 post '/post' do
 
-  run_sql('INSERT INTO posts (title, blurb, spot_name, lng, lat, user_id) VALUES ($1, $2, $3, $4, $5, $6);',[params[:title], params[:blurb], params[:spot_name], params[:lng], params[:lat], params[:user_id]])
-  
+  run_sql('INSERT INTO posts (location_name, target_fish, best_bait, best_lures, best_times, about, lng, lat, user_id, post_created) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);',[params[:location_name], params[:target_fish], params[:best_bait], params[:best_lures], params[:best_times], params[:about], params[:lng], params[:lat], params[:user_id], Time.now])
+
   redirect "/user/#{current_user['user_id']}"
 end
+
+delete '/post' do
+  run_sql('DELETE FROM posts WHERE post_id = $1', [params[:post_id]])
+  redirect "/user/#{current_user['user_id']}"
+end
+
