@@ -1,30 +1,38 @@
-<h2><%=post['location_name']%></h2>
+<link rel="stylesheet" href="/stylesheets/show-post.css">
 
-<p>posted by <%=get_username(post['user_id'])%> at <%=post['post_created']%></p>
+<div class="page-content">
+  <div class="post-details">
+    <h2><%=post['location_name']%></h2>
 
-<p>Target Fish: <%=post['target_fish']%></p>
-<p>Best Bait: <%=post['best_bait']%></p>
-<p>Best Lures: <%=post['best_lures']%></p>
-<p>Best Time to Catch:<%=post['best_times']%></p>
+    <p>posted by <a href="/user/<%=post['user_id']%>"><%=get_username(post['user_id'])%></a> at <%=post['post_created']%></p>
 
-<p><%=post['about_spot']%></p>
+    <h3>Target Fish:</h3> <p><%=post['target_fish']%></p>
+    <h3>Best Bait:</h3> <p><%=post['best_bait']%></p>
+    <h3>Best Lures:</h3><p><%=post['best_lures']%></p>
+    <h3>Best Time to Catch:</h3><p><%=post['best_times']%></p>
 
-<div id="lat"><%=post['lat']%></div>
-<div id="lng"><%=post['lng']%></div>
+    <p><%=post['about_spot']%></p>
 
-<div id="map"></div>
+    <div id="lat" style="display: none;"><%=post['lat']%></div>
+    <div id="lng" style="display: none;"><%=post['lng']%></div>
 
-<%if logged_in? && current_user['user_id'] == post['user_id']%>
+    <%if logged_in? && current_user['user_id'] == post['user_id']%>
 
-<a href="/post/edit">edit your post</a>
+    <a href="/post/<%=post['post_id']%>/edit">edit your post</a>
 
-<form action="/post" method="post">
-<input type="hidden" name="_method" value="delete">
-<input type="hidden" name="post_id" value="<%=post['post_id']%>">
-<button>delete your post</button>
-</form>
+    <form action="/post" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="post_id" value="<%=post['post_id']%>">
+    <button>delete your post</button>
+    </form>
 
-<%end%>
+    <%end%>
+  </div>
+
+  <div id="map"></div>
+
+</div>
+
 
 
 <script src="/javascripts/displayLocation.js"></script>

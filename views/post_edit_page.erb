@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/stylesheets/post.css">
+
+<div class="page-content">
+    <form action="/post" method="post" onsubmit="return isValidEntry();">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="post_id" value="<%=post['post_id']%>">
+        <input type="hidden" name="user_id" value="<%=current_user['user_id']%>">
+        <label for="">Location Name: </label>
+        <input type="text" name="location_name" value="<%=post['location_name']%>">
+        <label for="">Target Fish: </label>
+        <input type="text" name="target_fish" value="<%=post['target_fish']%>">
+        <label for="">Best Bait: </label>
+        <input type="text" name="best_bait" value="<%=post['best_bait']%>">
+        <label for="">Best Lures: </label>
+        <input type="text" name="best_lures" value="<%=post['best_lures']%>">
+        <label for="">Best Time/Tides: </label>
+        <input type="text" name="best_times" value="<%=post['best_times']%>">
+        <label for="">About this Spot: </label>
+        <input type="text" name="about" value="<%=post['about']%>">
+        <input type="hidden" id="lng" name="lng" value="<%=post['lng']%>">
+        <input type="hidden" id="lat" name="lat" value="<%=post['lat']%>">
+        <button>Update</button>
+    </form>
+
+    <div id="map"></div>
+</div>
+
+<script type="text/javascript" src="/javascripts/editPost.js"></script>
+<script type="text/javascript" src="/javascripts/editLocation.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=maps_api_key%>&callback=initMap&libraries=&v=weekly"></script>

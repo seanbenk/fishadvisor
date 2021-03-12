@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>FishAdvisor</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -12,7 +12,7 @@
 
     <%if logged_in?%>
       <nav>
-      FishAdvisor
+      	<h1 class="logo-text">&#128031; FishAdvisor</h1>
         <ul>
           <li>Welcome <%=current_user['username']%></li>
           <li><a href="/">Home</a></li>
@@ -31,7 +31,7 @@
       </nav>
     <%else%>
       <nav>
-      FishAdvisor
+        <h1 class="logo-text">&#128031; FishAdvisor</h1>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/login">Login</a></li>
@@ -46,6 +46,8 @@
     <%end%>
 
     <%= yield %>
+
+    <footer> &copy; fishadvisor 2021</footer>
 
 </div>
 

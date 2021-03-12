@@ -1,16 +1,22 @@
-<form action="/user" method="post" onsubmit="return isValidEntry();">
-<label for="">Username:</label>
-<input type="text" name="username">
-<label for="">Email:</label>
-<input type="text" name="email">
-<label for="">Password:</label>
-<input type="password" name="password">
-<button>Create Account</button>
-</form>
-<script src="/javascript/newUser.js"></script>
-<p id="#form-message">
-<%if params[:credentials_taken] == 'true'%>
-    email or username already in use
-<%end%>
-</p>
+<link rel="stylesheet" href="/stylesheets/signup-page.css">
 
+<div class="signup-content">
+
+    <form action="/user" method="post" onsubmit="return isValidEntry();">
+    <label for="">Username:</label>
+    <input type="text" name="username">
+    <label for="">Email:</label>
+    <input type="text" name="email">
+    <label for="">Password:</label>
+    <input type="password" name="password">
+    <button>Create Account</button>
+    <p id="#form-message" style="color: red;">
+    <%if params[:credentials_taken] == 'true'%>
+       email or username already in use
+    <%end%>
+    </p>
+    </form>
+    <script src="/javascripts/newUser.js"></script>
+
+
+</div>

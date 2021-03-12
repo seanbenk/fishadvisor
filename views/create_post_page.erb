@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="/stylesheets/create_post_page.css">
+<link rel="stylesheet" href="/stylesheets/post.css">
 
+
+<div class="page-content">
 <%if logged_in?%>
     <form action="/post" method="post" onsubmit="return isValidEntry();">
     <input type="hidden" name="user_id" value="<%=current_user['user_id']%>">
@@ -19,9 +21,10 @@
     <input type="hidden" id="lng" name="lng">
     <input type="hidden" id="lat" name="lat">
     <button>Post</button>
+    <p id="form-message"></p>
     </form>
 
-    <p id="form-message"></p>
+
 
     <div id="map"></div>
 
@@ -33,4 +36,6 @@
     <h1>You must be logged in to make a post</h1>
 
 <%end%>
+
+</div>
 
